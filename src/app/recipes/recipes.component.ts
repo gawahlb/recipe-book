@@ -6,8 +6,7 @@ import { RecipeService } from './recipe.service';
   standalone: false,
   
   templateUrl: './recipes.component.html',
-  styleUrl: './recipes.component.css',
-  providers: [RecipeService]
+  styleUrl: './recipes.component.css'
 })
 export class RecipesComponent {
 
