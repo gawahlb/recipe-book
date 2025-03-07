@@ -8,18 +8,24 @@ import { ShoppingListService } from "../shopping-list/shopping-list.service";
 export class RecipeService {
     recipesChanged = new Subject<Recipe[]>();
 
-    private recipes: Recipe[] = [
-        new Recipe(
-            'Hamburger',
-            'Really good hamburger!', 
-            '#',
-            [
-                new Ingredient('Meat', 1),
-                new Ingredient('Buns', 2)
-            ])
-      ];
+    //private recipes: Recipe[] = [
+    //    new Recipe(
+    //        'Hamburger',
+    //        'Really good hamburger!', 
+    //        '#',
+    //        [
+    //            new Ingredient('Meat', 1),
+    //            new Ingredient('Buns', 2)
+    //        ])
+    //  ];
+    private recipes: Recipe[] = [];
 
     constructor(private slService: ShoppingListService) {}
+
+    setRecipes(recipes: Recipe[]) {
+        this.recipes = recipes;
+        this.recipesChanged.next(this.recipes.slice());
+    }
 
     getRecipes() {
         return this.recipes.slice();
